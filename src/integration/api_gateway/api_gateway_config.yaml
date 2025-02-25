@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: api-gateway-config
+data:
+  routing_rules: |
+    - path: /api/v1/iot/sensors
+      service: iot-sensor-service
+    - path: /api/v1/analytics/predict
+      service: prediction-service
+    - path: /api/v1/blockchain/trace
+      service: blockchain-service
+    - path: /api/v1/dashboard/metrics
+      service: dashboard-service
+  security:
+    oauth2: "enabled"
+    token_endpoint: "/auth/token"
