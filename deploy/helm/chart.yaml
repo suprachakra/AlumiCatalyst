@@ -1,0 +1,6 @@
+apiVersion: v2
+name: alumicatalyst
+description: A Helm chart for deploying AlumiCatalyst on Azure Kubernetes Service.
+type: application
+version: 1.0.0
+appVersion: "1.0.0"
