@@ -1,0 +1,6 @@
+{
+  "sensor_id": "sensor_001",
+  "iot_hub_endpoint": "https://example-iothub.azure-devices.net/messages/events",
+  "api_key": "YOUR_API_KEY_HERE",
+  "data_interval": 5
+}
