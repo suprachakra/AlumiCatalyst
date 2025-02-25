@@ -1,0 +1,12 @@
+{
+  "timestamp_format": "YYYY-MM-DDTHH:MM:SSZ",
+  "default_scrap_weight": 0.0,
+  "default_emission_level": 0.0,
+  "cleaning_rules": {
+    "remove_negative_values": true,
+    "thresholds": {
+      "scrapWeight": { "min": 0, "max": 100 },
+      "emissionLevel": { "min": 0, "max": 50 }
+    }
+  }
+}
