@@ -1,41 +1,33 @@
-# Finance Cost Model
+## Finance, Cost & Budgeting
+This document outlines the financial framework for AlumiCatalyst, including CAPEX/OpEx estimates, ROI analysis, and budgeting for both initial deployment and ongoing operations.
 
-## Overview
-This document outlines the financial projections, CAPEX/OpEx estimates, and ROI analysis for AlumiCatalyst. It serves as a basis for budgeting, investment decisions, and strategic planning.
+### Cost Breakdown
 
-## Cost Breakdown
+#### Capital Expenditure (CAPEX)
+- **Hardware & Sensors:** Procurement of IoT sensors and installation costs.
+- **Infrastructure Setup:** Initial configuration costs for Azure services (IoT Hub, AKS, Data Lake).
+- **Development Costs:** Software development, integration, and customization efforts.
 
-### Capital Expenditure (CAPEX)
-- **Hardware & Sensors:**  
-  - Costs for IoT sensors and related hardware.
-- **Infrastructure:**  
-  - Initial setup costs for Azure services (IoT Hub, AKS, Data Lake).
-- **Development & Integration:**  
-  - Costs for software development, system integration, and customization.
+#### Operational Expenditure (OpEx)
+- **Cloud Services:** Recurring Azure subscriptions for compute, storage, and networking.
+- **Maintenance & Support:** Ongoing costs for system maintenance, security audits, and technical support.
+- **Training & Change Management:** Costs associated with user training, onboarding, and continuous improvement initiatives.
 
-### Operational Expenditure (OpEx)
-- **Cloud Services:**  
-  - Recurring costs for Azure subscriptions, compute, storage, and networking.
-- **Maintenance & Support:**  
-  - Ongoing costs for system maintenance, technical support, and security audits.
-- **Training & Change Management:**  
-  - Costs associated with user training, onboarding, and change management initiatives.
+### ROI Analysis
+- **Cost Savings:** Reduced scrap loss and energy consumption lead to significant annual savings.
+- **Efficiency Gains:** Improved operational efficiency boosts EBITDA by an estimated 10%.
+- **Revenue Opportunities:** Carbon credit mechanisms and enhanced production yield generate additional revenue.
+- **Break-Even Analysis:** Estimated time to break-even based on pilot data and scaling projections.
 
-## ROI Analysis
-- **Cost Savings:**  
-  - Reduced scrap loss (estimated 10% improvement) leads to significant recovered revenue.
-- **Efficiency Gains:**  
-  - Energy savings of 5–8% and reduced downtime.
-- **Revenue Opportunities:**  
-  - New revenue streams from carbon credits and improved EBITDA margins.
-- **Break-Even Analysis:**  
-  - Estimated time to break even based on projected cost savings versus expenditures.
+### Financial Projections
+- **Year 1:** Pilot deployment costs vs. early operational savings.
+- **Year 2:** Scaling costs balanced with increased efficiency and revenue from global rollout.
 
-## Financial Projections
-- **Year 1:** Detailed projections based on pilot deployment data.
-- **Year 2:** Scaling projections with full enterprise integration.
-- **Year 3:** Long-term ROI and cost optimization forecasts.
+### Budgeting
+- **Initial Investment:** Detailed budget for CAPEX and first-year OpEx.
+- **Ongoing Expenses:** Monthly and annual projections for maintenance, cloud services, and support.
+- **Contingency Funds:** Allocations for unforeseen costs, integration issues, and performance optimizations.
 
-## Assumptions & Sensitivity Analysis
-- Key assumptions (e.g., sensor accuracy, energy cost reductions) are documented.
-- Sensitivity analysis evaluates variable factors affecting ROI.
+### Assumptions & Sensitivity Analysis
+- Key assumptions regarding sensor accuracy, energy cost reductions, and production yield improvements.
+- Sensitivity analysis to evaluate ROI under different scenarios.
