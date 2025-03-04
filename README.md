@@ -1,7 +1,18 @@
 ## AlumiCatalyst
 Enterprise-grade digital transformation platform for the aluminum manufacturing industry. Built on the robust Azure stack, it seamlessly integrates IoT, AI, and blockchain to optimize scrap recovery, reduce carbon emissions, and enhance operational efficiency
 
+---
+### Table of Contents
+- [Overview](#overview)
+- [Key Features](#key-features)
+- [Architecture](#architecture)
+- [Technology Stack](#technology-stack)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+- [Testing & Deployment](#testing--deployment)
+- [Documentation](#documentation)
 
+---
 ### Overview
 
 AlumiCatalyst transforms aluminum manufacturing by:
@@ -213,9 +224,9 @@ flowchart TD
 │   │   ├── 04_Data_and_Analytics_Integration.md
 │   │   ├── 05_QA_and_Test_Automation.md
 │   │   ├── 06_Finance_cost_model.md
-│   │   ├── 08_Incident_response.md
-│   │   ├── 09_API_docs.md
-│   │   └── 10_Integration_guide.md
+│   │   ├── 07_Incident_response.md
+│   │   ├── 08_API_docs.md
+│   │   └── 09_Integration_guide.md
 ├── design/
 ├── src/
 │   ├── iot/
@@ -234,7 +245,39 @@ flowchart TD
 
 ### Getting Started
 
+
 1. **Clone the Repository:**
    ```bash
    git clone https://github.com/suprachakra/AlumiCatalyst.git
    cd AlumiCatalyst
+   ```
+2. **Install Dependencies:**  
+   Follow instructions in each module’s README (e.g., in `src/` and `tests/` folders).
+
+3. **Setup Azure Services:**  
+   Configure your Azure IoT Hub, Data Factory, AKS, etc., as per the provided documentation in `/docs/Technical`.
+
+4. **Run Tests:**
+   ```bash
+   cd tests
+   pytest
+   ```
+5. **Deploy:**
+   Use the provided `azure-pipelines.yml` and Helm charts in `/deploy/helm` to deploy on AKS.
+
+---
+
+### Testing & Deployment
+
+- **Testing:**  
+  Unit tests and integration tests are located in the `tests/` directory.
+- **Deployment:**  
+  CI/CD is managed via Azure DevOps. Helm charts and YAML configuration files in `deploy/` facilitate scalable deployments on AKS.
+
+---
+
+### Documentation
+
+Detailed documentation is available under the `/docs` folder:
+- **Strategy:** Vision, market insights, OKRs, product strategy, roadmap, risk & change management, launch, onboarding, and training.
+- **Technical:** Architecture, epics, requirements, integration, finance, incident response, API documentation, and more.
