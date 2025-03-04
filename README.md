@@ -129,13 +129,13 @@ flowchart TD
     classDef Sky stroke-width:1px, stroke-dasharray:none, stroke:#374D7C, fill:#E2EBFF, color:#374D7C
     classDef CezannePeach stroke-width:1px, stroke-dasharray:none, stroke:#E2A07D, fill:#FBE7DA, color:#6D4532
     classDef Peach stroke-width:1px, stroke-dasharray:none, stroke:#FBB35A, fill:#FFEFDB, color:#8F632D
-    style subGraph1 fill:transparent
-    style subGraph2 fill:transparent
-    style subGraph3 fill:transparent
-    style subGraph4 fill:transparent
-    style subGraph5 fill:transparent
-    style subGraph6 fill:transparent
+    style subGraph1 fill:transparent,stroke:#D50000
+    style subGraph2 fill:transparent,stroke:#D50000
+    style subGraph3 fill:transparent,stroke:#D50000
+    style subGraph4 fill:transparent,stroke:#D50000
+    style subGraph5 fill:transparent,stroke:#D50000
+    style subGraph6 fill:transparent,stroke:#D50000
     style subGraph7 fill:transparent
-    style subGraph0 fill:transparent
-    style subGraph8 fill:transparent
+    style subGraph0 fill:transparent,stroke:#2962FF
+    style subGraph8 fill:transparent,stroke:#00C853
 ```
