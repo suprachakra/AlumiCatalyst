@@ -1,44 +1,45 @@
-# Architecture
+## Architecture
 
-## Overview
+### Overview
 AlumiCatalyst is built on a modular, microservices-based architecture leveraging Azure’s robust cloud services. This design enables real-time data ingestion, advanced analytics, blockchain traceability, and a unified dashboard, all while ensuring scalability, resilience, and high performance.
 
-## Key Components
-- **IoT Data Acquisition:**  
-  - Utilizes Azure IoT Hub to capture real-time sensor data.
-  - Preprocessing is handled by Azure Data Factory.
-  - Raw and processed data are stored in Azure Data Lake.
+### Key Components
+- **IoT & Data Ingestion:**  
+  - **Azure IoT Hub:** Captures real-time sensor data from the production environment.
+  - **Azure Data Factory:** Preprocesses and transforms raw sensor data.
+  - **Azure Data Lake:** Stores both raw and processed data for long-term analytics.
 
 - **Analytics Engine:**  
-  - Implements Azure Machine Learning for predictive analytics.
-  - Provides real-time insights, anomaly detection, and “what‑if” simulation capabilities.
+  - **Azure Machine Learning:** Hosts predictive models to forecast scrap loss and carbon emissions.
+  - **Evaluation & Monitoring:** Provides real-time anomaly detection and “what-if” simulation capabilities.
 
-- **Blockchain Module:**  
-  - Uses Azure Confidential Ledger to create an immutable log of production events.
-  - Supports secure traceability and regulatory reporting for carbon credits.
+- **Blockchain Traceability:**  
+  - **Azure Confidential Ledger:** Implements an immutable ledger for production event logging, ensuring regulatory compliance and transparent carbon credit verification.
 
-- **Dashboard and UI:**  
-  - Frontend built with React and deployed on Azure App Service.
-  - Backend services (Node.js/Python) aggregate data and expose RESTful APIs.
+- **Application Layer (Dashboard):**  
+  - **Frontend (React):** Offers an intuitive, customizable user interface.
+  - **Backend (Node.js/Python):** Aggregates data and exposes RESTful APIs for dashboard functionalities.
+  
+- **Integration & Messaging:**  
+  - **Azure API Management:** Facilitates secure API exposure and integration with ERP and legacy systems.
+  - **Azure Service Bus:** Supports asynchronous messaging between microservices.
 
-- **Integration Layer:**  
-  - Managed via Azure API Management for secure communication with ERP and legacy systems.
-  - Employs Azure Service Bus for asynchronous messaging between services.
+- **Deployment & Orchestration:**  
+  - **Azure Kubernetes Service (AKS):** Hosts containerized microservices to ensure scalability.
+  - **Azure DevOps:** Provides CI/CD pipelines for continuous integration, testing, and deployment.
 
-- **Deployment and Orchestration:**  
-  - Containerized microservices orchestrated using Azure Kubernetes Service (AKS).
-  - CI/CD pipelines are implemented using Azure DevOps.
-
-## Data Flow & Security
+### Data Flow & Security
 - **Data Flow:**  
-  - Sensor → IoT Hub → Data Factory → Data Lake → Machine Learning → Dashboard/API
+  - **Flow:** Sensors → IoT Hub → Data Factory → Data Lake → Machine Learning → Dashboard/API  
+  - **Blockchain Integration:** IoT Hub also forwards event data to the Confidential Ledger for secure traceability.
+  
 - **Security Measures:**  
-  - Data is encrypted in transit and at rest.
-  - Role-based access control is enforced via Azure Active Directory.
-  - Regular security audits and compliance checks are conducted.
+  - **Encryption:** All data is encrypted both in transit and at rest.
+  - **Access Control:** Role-based access is enforced via Azure Active Directory.
+  - **Compliance:** Regular security audits and compliance checks are performed.
 
-## Diagram
-Refer below to the supplementary architecture diagram for a visual representation.
+### Diagram
+Refer below to the architecture diagram for a visual representation.
 ```mermaid
 ---
 config:
@@ -53,6 +54,7 @@ config:
     tertiaryColor: '#fef0ff'
     tertiaryTextColor: '#333333'
     tertiaryBorderColor: '#d4a5d4'
+  layout: fixed
 ---
 flowchart TD
  subgraph subGraph0["**IoT Layer**"]
@@ -91,31 +93,49 @@ flowchart TD
     J --> K
     M --> L
      B:::pastel2
+     B:::KlimtGold
      A:::pastel1
+     A:::KlimtGold
      C:::pastel3
+     C:::RenoirPink
+     C:::Rose
      D:::pastel4
+     D:::Rose
      E:::pastel5
+     E:::MonetBlue
      F:::pastel6
+     F:::MonetBlue
      G:::pastel7
+     G:::MonetBlue
      H:::pastel8
+     H:::MatisseLavender
+     H:::Peach
      I:::pastel9
+     I:::Peach
      J:::pastel10
+     J:::Aqua
      K:::pastel11
+     K:::Aqua
      L:::pastel12
+     L:::DegasGreen
      M:::pastel13
-    classDef pastel1 fill:#ffefef,stroke:#d4a5a5,stroke-width:2px
-    classDef pastel2 fill:#f0fff0,stroke:#a5d4a5,stroke-width:2px
-    classDef pastel3 fill:#fef0ff,stroke:#d4a5d4,stroke-width:2px
-    classDef pastel4 fill:#f0f7ff,stroke:#a5b8d4,stroke-width:2px
-    classDef pastel5 fill:#fffaf0,stroke:#d4cfa5,stroke-width:2px
-    classDef pastel6 fill:#f7fff0,stroke:#a5d4a5,stroke-width:2px
-    classDef pastel7 fill:#fffbf0,stroke:#d4cfa5,stroke-width:2px
-    classDef pastel8 fill:#f0faff,stroke:#a5d4d4,stroke-width:2px
-    classDef pastel9 fill:#f7f0ff,stroke:#d4a5d4,stroke-width:2px
-    classDef pastel10 fill:#fff0f0,stroke:#d4a5a5,stroke-width:2px
-    classDef pastel11 fill:#f0fff7,stroke:#a5d4a5,stroke-width:2px
-    classDef pastel12 fill:#f0fff0,stroke:#a5d4a5,stroke-width:2px
-    classDef pastel13 fill:#fff0fa,stroke:#d4a5d4,stroke-width:2px
+     M:::DegasGreen
+    classDef VanGoghYellow stroke-width:1px, stroke-dasharray:none, stroke:#E3B448, fill:#FDF6C9, color:#7D5A17 
+    classDef PicassoBlue stroke-width:1px, stroke-dasharray:none, stroke:#5A84A2, fill:#CDE0F2, color:#2D4661  
+    classDef Ash stroke-width:1px, stroke-dasharray:none, stroke:#999999, fill:#EEEEEE, color:#000000
+    classDef TurnerMist stroke-width:1px, stroke-dasharray:none, stroke:#B8C4D1, fill:#EAF2F8, color:#4A5B6F
+    classDef Pine stroke-width:1px, stroke-dasharray:none, stroke:#254336, fill:#27654A, color:#FFFFFF
+    classDef HokusaiWave stroke-width:1px, stroke-dasharray:none, stroke:#6188A9, fill:#D4E8F2, color:#2A425D
+    classDef Sky stroke-width:1px, stroke-dasharray:none, stroke:#374D7C, fill:#E2EBFF, color:#374D7C
+    classDef CezannePeach stroke-width:1px, stroke-dasharray:none, stroke:#E2A07D, fill:#FBE7DA, color:#6D4532
+    classDef KlimtGold stroke-width:1px, stroke-dasharray:none, stroke:#D4A017, fill:#FBF2C1, color:#705A16
+    classDef MonetBlue stroke-width:1px, stroke-dasharray:none, stroke:#87AFC7, fill:#D4EAF7, color:#30577B
+    classDef RenoirPink stroke-width:1px, stroke-dasharray:none, stroke:#E4A0A0, fill:#FBE5E5, color:#7D3E3E
+    classDef Rose stroke-width:1px, stroke-dasharray:none, stroke:#FF5978, fill:#FFDFE5, color:#8E2236
+    classDef DegasGreen stroke-width:1px, stroke-dasharray:none, stroke:#A7C796, fill:#E6F4E2, color:#3E6A42
+    classDef MatisseLavender stroke-width:1px, stroke-dasharray:none, stroke:#B39DBC, fill:#ECE3F5, color:#4E3A5E
+    classDef Peach stroke-width:1px, stroke-dasharray:none, stroke:#FBB35A, fill:#FFEFDB, color:#8F632D
+    classDef Aqua stroke-width:1px, stroke-dasharray:none, stroke:#46EDC8, fill:#DEFFF8, color:#378E7A
     style subGraph0 fill:transparent
     style subGraph1 fill:transparent
     style Analytics fill:transparent
