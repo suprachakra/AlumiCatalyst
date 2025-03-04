@@ -61,6 +61,15 @@ This document outlines the complete architecture, technical stack, core modules,
    - **Monitoring & Logging:**  
      - Utilizes Azure Monitor and Application Insights for real-time performance tracking and alerting.
 
+| **Module**               | **Function**                                                    | **Components**                                                                 |
+|--------------------------|-----------------------------------------------------------------|--------------------------------------------------------------------------------|
+| **IoT Module**           | Capture sensor data from the production environment.          | Azure IoT Hub, Sensor Ingestion Service, Preprocessing Pipelines               |
+| **Analytics Module**     | Process data and run predictive models.                         | Azure Machine Learning, Predictive Analytics Engine, Evaluation Metrics Service|
+| **Blockchain Module**    | Ensure immutable logging and traceability.                      | Azure Confidential Ledger, Smart Contracts                                     |
+| **Dashboard Module**     | Provide a unified, interactive interface for monitoring and control. | Frontend UI (React), Backend API (Node.js/Python), User Management             |
+| **Integration Layer**    | Enable seamless communication with ERP and legacy systems.      | Azure API Management, Azure Service Bus                                        |
+| **Deployment & DevOps**  | Orchestrate, deploy, and manage services.                         | Azure Kubernetes Service (AKS), Azure DevOps CI/CD pipelines, Helm charts        | 
+
 ---
 
 ### 2. Technical Stack
