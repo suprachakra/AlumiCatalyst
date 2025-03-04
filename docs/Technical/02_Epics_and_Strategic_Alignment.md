@@ -1,9 +1,7 @@
-# Epics and Strategic Alignment (Technical)
-
-## Overview
+## Epics and Strategic Alignment
 This document outlines the core technical epics for AlumiCatalyst, detailing key technical features, integration points, and their alignment with our strategic objectives.
 
-## Technical Epics Overview
+### Technical Epics Overview
 
 | Epic ID | Epic Name                                   | Description                                                          | Key Features                                                      | Strategic Alignment                                           |
 |---------|---------------------------------------------|----------------------------------------------------------------------|-------------------------------------------------------------------|---------------------------------------------------------------|
@@ -16,5 +14,5 @@ This document outlines the core technical epics for AlumiCatalyst, detailing key
 | TE-007  | Continuous Improvement and Feedback Loop    | Establish mechanisms for ongoing model and system performance refinement.| - Continuous learning<br>- Performance tuning<br>- Feedback integration     | Drives long-term operational excellence.                         |
 | TE-008  | Data Governance and Security Management     | Enforce robust security and data governance protocols platform-wide.   | - Data encryption<br>- RBAC<br>- Audit logs and compliance monitoring       | Maintains regulatory compliance and data integrity.              |
 
-## Alignment Summary
+### Alignment Summary
 These technical epics are designed to meet our strategic objectives by ensuring high-quality data ingestion, robust analytics, secure traceability, and seamless integration across systems.
