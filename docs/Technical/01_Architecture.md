@@ -1,145 +1,217 @@
-## Architecture
+## Architecture and Engineering Overview
 
-### Overview
-AlumiCatalyst is built on a modular, microservices-based architecture leveraging Azure’s robust cloud services. This design enables real-time data ingestion, advanced analytics, blockchain traceability, and a unified dashboard, all while ensuring scalability, resilience, and high performance.
+AlumiCatalyst is a modular, microservices-based digital transformation platform for aluminum manufacturing built on Microsoft Azure. It is designed to capture real-time sensor data, perform advanced analytics, enforce blockchain-based traceability, and deliver a unified, customizable dashboard—all while ensuring high scalability, robust security, and continuous operational excellence.
 
-### Key Components
-- **IoT & Data Ingestion:**  
-  - **Azure IoT Hub:** Captures real-time sensor data from the production environment.
-  - **Azure Data Factory:** Preprocesses and transforms raw sensor data.
-  - **Azure Data Lake:** Stores both raw and processed data for long-term analytics.
+This document outlines the complete architecture, technical stack, core modules, data flows, and security parameters. It also details how the system components interconnect and are orchestrated for enterprise-grade performance.
 
-- **Analytics Engine:**  
-  - **Azure Machine Learning:** Hosts predictive models to forecast scrap loss and carbon emissions.
-  - **Evaluation & Monitoring:** Provides real-time anomaly detection and “what-if” simulation capabilities.
+---
 
-- **Blockchain Traceability:**  
-  - **Azure Confidential Ledger:** Implements an immutable ledger for production event logging, ensuring regulatory compliance and transparent carbon credit verification.
+### 1. System Architecture Overview
 
-- **Application Layer (Dashboard):**  
-  - **Frontend (React):** Offers an intuitive, customizable user interface.
-  - **Backend (Node.js/Python):** Aggregates data and exposes RESTful APIs for dashboard functionalities.
-  
-- **Integration & Messaging:**  
-  - **Azure API Management:** Facilitates secure API exposure and integration with ERP and legacy systems.
-  - **Azure Service Bus:** Supports asynchronous messaging between microservices.
+#### Core Components & Modules
 
-- **Deployment & Orchestration:**  
-  - **Azure Kubernetes Service (AKS):** Hosts containerized microservices to ensure scalability.
-  - **Azure DevOps:** Provides CI/CD pipelines for continuous integration, testing, and deployment.
+1. **IoT & Data Ingestion**
+   - **Azure IoT Hub:**  
+     - Captures real-time data from deployed IoT sensors on the production floor.
+     - Ensures secure communication between sensors and cloud.
+   - **Azure Data Factory:**  
+     - Transforms and preprocesses raw sensor data.
+     - Supports both real-time and batch processing from legacy systems.
+   - **Azure Data Lake:**  
+     - Central repository for storing raw and processed data.
+     - Enables large-scale data storage and analytics.
 
-### Data Flow & Security
-- **Data Flow:**  
-  - **Flow:** Sensors → IoT Hub → Data Factory → Data Lake → Machine Learning → Dashboard/API  
-  - **Blockchain Integration:** IoT Hub also forwards event data to the Confidential Ledger for secure traceability.
-  
-- **Security Measures:**  
-  - **Encryption:** All data is encrypted both in transit and at rest.
-  - **Access Control:** Role-based access is enforced via Azure Active Directory.
-  - **Compliance:** Regular security audits and compliance checks are performed.
+2. **Analytics Engine**
+   - **Azure Machine Learning:**  
+     - Hosts predictive models for forecasting scrap loss and carbon emissions.
+     - Supports continuous retraining and model refinement based on live data.
+   - **Analytics Services:**  
+     - Anomaly detection, “what‑if” simulation, and performance evaluation.
+   - **Azure Synapse Analytics & Power BI:**  
+     - Provide advanced data visualization and interactive reporting.
 
-### Diagram
-Refer below to the architecture diagram for a visual representation.
+3. **Blockchain Traceability**
+   - **Azure Confidential Ledger:**  
+     - Implements an immutable ledger for recording production events.
+     - Provides transparent and verifiable data for regulatory compliance and carbon credit reporting.
+   - **Smart Contracts:**  
+     - Execute predefined rules for event logging and automated reporting.
+
+4. **Application Layer (Dashboard & UI)**
+   - **Frontend (React):**  
+     - Delivers a responsive, interactive, and customizable user interface.
+     - Designed for real-time display of KPIs, alerts, and data visualizations.
+   - **Backend (Node.js/Python):**  
+     - Aggregates data from multiple modules.
+     - Provides RESTful APIs for dashboard operations and user management.
+
+5. **Integration & Messaging**
+   - **Azure API Management:**  
+     - Exposes secure, versioned APIs for integration with ERP and legacy systems.
+   - **Azure Service Bus:**  
+     - Facilitates asynchronous communication and message queuing between microservices.
+   - **Data Connectors:**  
+     - Enable seamless data synchronization with external systems.
+
+6. **Deployment & DevOps**
+   - **Azure Kubernetes Service (AKS):**  
+     - Hosts containerized microservices for scalable and resilient deployment.
+   - **Azure DevOps CI/CD:**  
+     - Automates build, test, and deployment processes using pipelines and Helm charts.
+   - **Monitoring & Logging:**  
+     - Utilizes Azure Monitor and Application Insights for real-time performance tracking and alerting.
+
+---
+
+### 2. Technical Stack
+
+| **Category**              | **Components**                                                                                          |
+|---------------------------|---------------------------------------------------------------------------------------------------------|
+| **Cloud Platform**        | Microsoft Azure                                                                                         |
+| **Compute & Orchestration** | Azure Kubernetes Service (AKS)<br>Azure Functions for serverless processing                              |
+| **Data Services**         | Azure IoT Hub<br>Azure Data Factory<br>Azure Data Lake<br>Azure SQL Database                              |
+| **Analytics & AI**        | Azure Machine Learning<br>Azure Synapse Analytics<br>Power BI for visualization                         |
+| **Blockchain**            | Azure Confidential Ledger                                                                               |
+| **Security**              | Azure Active Directory (RBAC)<br>Azure Key Vault                                                        |
+| **Integration**           | Azure API Management<br>Azure Service Bus                                                               |
+| **DevOps**                | Azure DevOps CI/CD pipelines<br>Helm charts for deployment management                                   |
+
+---
+
+### 3. Data Flow & Security
+
+### Data Flow Process
+- **Primary Flow:**  
+  1. **Sensors → Azure IoT Hub:** Real-time sensor data is captured.
+  2. **IoT Hub → Azure Data Factory:** Data is preprocessed and transformed.
+  3. **Data Factory → Azure Data Lake:** Data is stored for long-term analysis.
+  4. **Data Lake → Azure Machine Learning:** Data is used to generate predictive insights.
+  5. **Azure ML → Dashboard/API:** Predictions and analytics are served to the user interface.
+- **Blockchain Integration:**  
+  - In parallel, IoT Hub forwards production events to the Azure Confidential Ledger for immutable logging.
+
+#### Security Measures
+- **Encryption:** Data is encrypted in transit (TLS) and at rest.
+- **Access Control:** Role-based access using Azure Active Directory.
+- **Compliance:** Regular security audits and continuous compliance monitoring.
+- **Logging & Monitoring:** Azure Monitor and Application Insights provide end-to-end logging and performance tracking.
+
+---
+
+### 4. Detailed Mermaid Diagram
+
+Below is the detailed Mermaid diagram for the overall system architecture:
+
 ```mermaid
----
-config:
-  theme: default
-  themeVariables:
-    primaryColor: '#f9f9f9'
-    primaryTextColor: '#333333'
-    primaryBorderColor: '#d4a5a5'
-    secondaryColor: '#f0fff0'
-    secondaryTextColor: '#333333'
-    secondaryBorderColor: '#a5d4a5'
-    tertiaryColor: '#fef0ff'
-    tertiaryTextColor: '#333333'
-    tertiaryBorderColor: '#d4a5d4'
-  layout: fixed
----
 flowchart TD
- subgraph subGraph0["**IoT Layer**"]
+ subgraph subGraph0["IoT & Data Ingestion"]
         B["Azure IoT Hub"]
         A["IoT Sensors"]
-  end
- subgraph subGraph1["**Data Processing**"]
         C["Azure Data Factory"]
         D["Azure Data Lake"]
   end
- subgraph Analytics["**Analytics**"]
+ subgraph subGraph1["Analytics Engine"]
         E["Azure Machine Learning"]
-        F["Real-time Predictions"]
-        G["Azure Confidential Ledger"]
+        F["Predictive Models & Evaluations"]
+        G["Anomaly Detection & Simulations"]
   end
- subgraph Application["**Application**"]
-        H["Unified Dashboard"]
-        I["Azure API Management"]
+ subgraph subGraph2["Blockchain Traceability"]
+        H["Azure Confidential Ledger"]
+        I["Smart Contract Execution"]
   end
- subgraph Integration["**Integration**"]
-        J["Azure Service Bus"]
-        K["ERP / Legacy Systems"]
+ subgraph subGraph3["Application Layer"]
+        J["Unified Dashboard Frontend"]
+        K["Dashboard Backend APIs"]
+        L["User Management"]
   end
- subgraph Deployment["**Deployment**"]
-        L["Azure Kubernetes Service AKS"]
-        M["Azure DevOps CI/CD"]
+ subgraph subGraph4["Integration & Messaging"]
+        M["Azure API Management"]
+        N["Azure Service Bus"]
+        O["ERP / Legacy Systems"]
+  end
+ subgraph subGraph5["Deployment & DevOps"]
+        P["Azure Kubernetes Service AKS"]
+        Q["Azure DevOps CI/CD"]
   end
     A --> B
-    B --> C & G
+    B --> C & H
     C --> D
     D --> E
-    E --> F
-    F --> H
-    H --> I & L
-    I --> J & L
-    J --> K
-    M --> L
+    E --> F & G
+    H --> I
+    F --> J
+    J --> K & P
+    K --> L & M
+    M --> N & P
+    N --> O
+    Q --> P
+
      B:::pastel2
-     B:::KlimtGold
+     B:::Peach
      A:::pastel1
-     A:::KlimtGold
+     A:::pastel12
+     A:::Peach
      C:::pastel3
-     C:::RenoirPink
-     C:::Rose
+     C:::Peach
      D:::pastel4
-     D:::Rose
+     D:::Peach
      E:::pastel5
-     E:::MonetBlue
      F:::pastel6
-     F:::MonetBlue
-     G:::pastel7
-     G:::MonetBlue
-     H:::pastel8
-     H:::MatisseLavender
-     H:::Peach
-     I:::pastel9
-     I:::Peach
-     J:::pastel10
-     J:::Aqua
-     K:::pastel11
-     K:::Aqua
-     L:::pastel12
-     L:::DegasGreen
-     M:::pastel13
-     M:::DegasGreen
-    classDef VanGoghYellow stroke-width:1px, stroke-dasharray:none, stroke:#E3B448, fill:#FDF6C9, color:#7D5A17 
-    classDef PicassoBlue stroke-width:1px, stroke-dasharray:none, stroke:#5A84A2, fill:#CDE0F2, color:#2D4661  
+     F:::VanGoghYellow
+     G:::pastel6
+     G:::VanGoghYellow
+     H:::pastel7
+     H:::Aqua
+     I:::pastel7
+     I:::Aqua
+     J:::pastel8
+     J:::PicassoBlue
+     J:::MonetBlue
+     K:::pastel8
+     K:::HokusaiWave
+     L:::pastel8
+     L:::MonetBlue
+     M:::pastel9
+     M:::Rose
+     N:::pastel10
+     N:::RenoirPink
+     O:::pastel10
+     O:::RenoirPink
+     P:::pastel11
+     Q:::pastel12
+     Q:::DegasGreen
+    classDef pastel1 fill:#fff5f5,stroke:#ffcccc,stroke-width:2px
+    classDef pastel2 fill:#f5fff5,stroke:#ccffcc,stroke-width:2px
+    classDef pastel3 fill:#fff5ff,stroke:#ffccff,stroke-width:2px
+    classDef pastel4 fill:#f5f7ff,stroke:#cce0ff,stroke-width:2px
+    classDef pastel5 fill:#fffaf0,stroke:#ffe5b4,stroke-width:2px
+    classDef pastel6 fill:#e6ffed,stroke:#a5d4a5,stroke-width:2px
+    classDef pastel7 fill:#fffbf0,stroke:#ffe5b4,stroke-width:2px
+    classDef pastel8 fill:#f0faff,stroke:#a5d4d4,stroke-width:2px
+    classDef pastel9 fill:#f7f0ff,stroke:#ffcccc,stroke-width:2px
+    classDef pastel10 fill:#fff0f0,stroke:#ffcccc,stroke-width:2px
     classDef Ash stroke-width:1px, stroke-dasharray:none, stroke:#999999, fill:#EEEEEE, color:#000000
-    classDef TurnerMist stroke-width:1px, stroke-dasharray:none, stroke:#B8C4D1, fill:#EAF2F8, color:#4A5B6F
+    classDef MatisseLavender stroke-width:1px, stroke-dasharray:none, stroke:#B39DBC, fill:#ECE3F5, color:#4E3A5E
     classDef Pine stroke-width:1px, stroke-dasharray:none, stroke:#254336, fill:#27654A, color:#FFFFFF
-    classDef HokusaiWave stroke-width:1px, stroke-dasharray:none, stroke:#6188A9, fill:#D4E8F2, color:#2A425D
     classDef Sky stroke-width:1px, stroke-dasharray:none, stroke:#374D7C, fill:#E2EBFF, color:#374D7C
     classDef CezannePeach stroke-width:1px, stroke-dasharray:none, stroke:#E2A07D, fill:#FBE7DA, color:#6D4532
     classDef KlimtGold stroke-width:1px, stroke-dasharray:none, stroke:#D4A017, fill:#FBF2C1, color:#705A16
+    classDef VanGoghYellow stroke-width:1px, stroke-dasharray:none, stroke:#E3B448, fill:#FDF6C9, color:#7D5A17
+    classDef PicassoBlue stroke-width:1px, stroke-dasharray:none, stroke:#5A84A2, fill:#CDE0F2, color:#2D4661
+    classDef HokusaiWave stroke-width:1px, stroke-dasharray:none, stroke:#6188A9, fill:#D4E8F2, color:#2A425D
+    classDef TurnerMist stroke-width:1px, stroke-dasharray:none, stroke:#B8C4D1, fill:#EAF2F8, color:#4A5B6F
     classDef MonetBlue stroke-width:1px, stroke-dasharray:none, stroke:#87AFC7, fill:#D4EAF7, color:#30577B
-    classDef RenoirPink stroke-width:1px, stroke-dasharray:none, stroke:#E4A0A0, fill:#FBE5E5, color:#7D3E3E
     classDef Rose stroke-width:1px, stroke-dasharray:none, stroke:#FF5978, fill:#FFDFE5, color:#8E2236
+    classDef RenoirPink stroke-width:1px, stroke-dasharray:none, stroke:#E4A0A0, fill:#FBE5E5, color:#7D3E3E
     classDef DegasGreen stroke-width:1px, stroke-dasharray:none, stroke:#A7C796, fill:#E6F4E2, color:#3E6A42
-    classDef MatisseLavender stroke-width:1px, stroke-dasharray:none, stroke:#B39DBC, fill:#ECE3F5, color:#4E3A5E
-    classDef Peach stroke-width:1px, stroke-dasharray:none, stroke:#FBB35A, fill:#FFEFDB, color:#8F632D
+    classDef pastel11 fill:#f0fff0, stroke:#a5d4a5, stroke-width:2px
     classDef Aqua stroke-width:1px, stroke-dasharray:none, stroke:#46EDC8, fill:#DEFFF8, color:#378E7A
-    style subGraph0 fill:transparent
+    classDef pastel12 fill:#fff0fa, stroke:#ffccff, stroke-width:2px
+    classDef Peach stroke-width:1px, stroke-dasharray:none, stroke:#FBB35A, fill:#FFEFDB, color:#8F632D
+    style subGraph3 fill:transparent
+    style subGraph5 fill:transparent
+    style subGraph4 fill:transparent
     style subGraph1 fill:transparent
-    style Analytics fill:transparent
-    style Application fill:transparent
-    style Deployment fill:transparent
-    style Integration fill:transparent
+    style subGraph2 fill:transparent
+    style subGraph0 fill:transparent
 ```
