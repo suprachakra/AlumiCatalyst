@@ -1,6 +1,6 @@
-# Detailed Requirements – Functional and Non‑Functional
+## Requirements – Functional and Non‑Functional
 
-## Functional Requirements (FRs)
+### Functional Requirements (FRs)
 
 | FR ID  | Requirement                                                      | Acceptance Criteria                                            | Risks & Fallbacks                                            | Cross-Dept Checks         | Priority |
 |--------|------------------------------------------------------------------|----------------------------------------------------------------|--------------------------------------------------------------|---------------------------|----------|
@@ -11,7 +11,7 @@
 | FR-005 | Generate automated alerts for anomalies and incidents.           | Alerts trigger within 30 seconds of detection.                | Manual monitoring activated if automated alerts fail.        | Operations, QA, IT        | Medium   |
 | FR-006 | Seamlessly integrate with external ERP systems via secure APIs.   | API response <200 ms; 99% success rate in data synchronization. | Use fallback batch imports if API integration fails.         | IT, Engineering, Finance  | High     |
 
-## Non‑Functional Requirements (NFRs)
+### Non‑Functional Requirements (NFRs)
 
 | NFR ID | Requirement                                                     | Metric                                          | Risks & Fallbacks                                              | Dept Checks              | Priority |
 |--------|-----------------------------------------------------------------|-------------------------------------------------|----------------------------------------------------------------|--------------------------|----------|
