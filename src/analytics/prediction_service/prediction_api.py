@@ -2,7 +2,6 @@
 Prediction API
 A Flask-based RESTful API to serve predictions using the trained predictive model.
 """
-
 from flask import Flask, request, jsonify
 import numpy as np
 from analytics.ai_models.predictive_model import PredictiveModel
@@ -27,6 +26,9 @@ def predict():
 
     prediction = model.predict(features)
     prediction["sensorId"] = sensor_id
+
+    # Additional logging: For carbon management reporting, log emission forecast
+    app.logger.info(f"Sensor {sensor_id} - Emission Forecast: {prediction['emissionForecast']}")
     return jsonify(prediction)
 
 if __name__ == "__main__":
