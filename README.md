@@ -217,6 +217,7 @@ flowchart TD
 │   │   ├── 09_Launch_Strategy.md
 │   │   ├── 10_Onboarding.md
 │   │   └── 11_User_Training.md
+│   │   └── 12_Simulation_Based_Training.md 
 │   ├── Technical/
 │   │   ├── 01_Architecture.md
 │   │   ├── 02_Epics_and_Strategic_Alignment.md
@@ -227,6 +228,11 @@ flowchart TD
 │   │   ├── 07_Incident_response.md
 │   │   ├── 08_API_docs.md
 │   │   └── 09_Integration_guide.md
+│   │   ├── 10_Predictive_Maintenance_and_Energy_Optimization.md
+│   │   ├── 11_Supply_Chain_Integration.md
+│   │   ├── 12_Enhanced_Sustainability_Reporting.md
+│   │   ├── 13_User_Feedback_and_Continuous_Improvement.md
+│   │   └── 14_Expanded_Security_and_Compliance.md
 ├── design/
 ├── src/
 │   ├── iot/
