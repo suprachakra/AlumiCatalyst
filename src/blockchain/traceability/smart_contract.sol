@@ -6,7 +6,7 @@ contract Traceability {
         uint256 id;
         string sensorId;
         uint256 timestamp;
-        string details;
+        string details; // This field includes production details and carbon emission information.
     }
 
     uint256 public eventCount;
