@@ -27,13 +27,15 @@ AlumiCatalyst transforms aluminum manufacturing by:
 
 ### Key Features
 
-- **IoT Data Ingestion:** Real-time sensor data capture and preprocessing.
-- **Predictive Analytics:** Advanced machine learning models forecasting scrap loss and carbon emissions.
-- **Blockchain Traceability:** Immutable logging of production events for compliance and carbon credit verification.
-- **Unified Dashboard:** An intuitive interface providing real-time metrics, customizable alerts, and interactive data visualizations.
-- **ERP Integration:** Seamless connectivity with existing legacy systems.
-- **Scalable Deployment:** Automated CI/CD pipelines and orchestration with Azure Kubernetes Service.
-- **Robust Security:** Comprehensive encryption, role-based access, and compliance measures.
+**IoT Data Ingestion:** Real-time sensor data capture and preprocessing with built-in fallback mechanisms.
+**Predictive Analytics:** Advanced machine learning models forecast scrap loss, predict equipment failures, and estimate carbon emissions.
+**Blockchain Traceability:** Immutable logging of production events, including carbon emission details, for regulatory compliance and carbon credit verification.
+**Unified Dashboard:** An intuitive interface providing real-time metrics, customizable alerts, and interactive data visualizations.
+**ERP & Supply Chain Integration:** Seamless connectivity with legacy systems, offering end-to-end tracking across the entire value chain.
+**Scalable Deployment:** Automated CI/CD pipelines and orchestration with Azure Kubernetes Service.
+**Robust Security & Compliance:** Comprehensive encryption, role-based access, and continuous vulnerability scanning to meet global standards.
+**Continuous Improvement & Training:** Integrated user feedback, simulation-based training, and periodic refresher courses ensure sustained adoption and operational excellence.
+
 ---
 
 ## Architecture
@@ -284,6 +286,6 @@ flowchart TD
 
 ### Documentation
 
-Detailed documentation is available under the `/docs` folder:
-- **Strategy:** Vision, market insights, OKRs, product strategy, roadmap, risk & change management, launch, onboarding, and training.
-- **Technical:** Architecture, epics, requirements, integration, finance, incident response, API documentation, and more.
+Detailed documentation is available under the `docs/` folder:
+- **Strategy:** Vision, market insights, OKRs, product strategy, roadmap, risk & change management, launch, onboarding, user training, and simulation-based training.
+- **Technical:** Architecture, epics, requirements, data integration, QA, API docs, integration guide, finance, incident response, predictive maintenance, supply chain integration, enhanced sustainability reporting, user feedback, and expanded security & compliance.
