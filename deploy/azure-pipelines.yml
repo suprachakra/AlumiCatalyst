@@ -2,25 +2,46 @@ trigger:
   branches:
     include:
       - main
-      - develop
+      - dev
 
 pool:
   vmImage: 'ubuntu-latest'
 
-steps:
-- task: UsePythonVersion@0
-  inputs:
-    versionSpec: '3.8'
-- script: |
-    pip install -r requirements.txt
-    pytest --maxfail=1 --disable-warnings -q
-  displayName: 'Run Tests'
-- task: Docker@2
-  displayName: 'Build and Push Docker Image'
-  inputs:
-    containerRegistry: '$(dockerRegistryServiceConnection)'
-    repository: 'alumicatalyst/app'
-    command: 'buildAndPush'
-    Dockerfile: '**/Dockerfile'
-    tags: |
-      $(Build.BuildId)
+jobs:
+  - job: Build
+    steps:
+      - script: echo "Building the application..."
+      - script: npm install && npm run build
+
+  - job: Test
+    steps:
+      - script: echo "Running unit tests..."
+      - script: pytest --maxfail=1 --disable-warnings -q tests/unit/
+      - script: echo "Running integration tests..."
+      - script: pytest --maxfail=1 --disable-warnings -q tests/integration/
+
+  - job: Deploy
+    dependsOn: Test
+    steps:
+      - script: echo "Deploying to AKS..."
+      - script: kubectl apply -f deploy/helm/deployment.yaml
+      - script: kubectl rollout status deployment/alumi-app || exit 1
+      - script: echo "Deployment complete."
+
+  - job: Rollback
+    condition: failed()
+    steps:
+      - script: echo "Deployment failed, initiating rollback..."
+      - script: kubectl rollout undo deployment/alumi-app
+      - script: echo "Rollback complete."
+
+  - job: IncidentMonitoring
+    steps:
+      - script: echo "Monitoring for system health..."
+      - script: |
+          if kubectl get pods | grep -q 'CrashLoopBackOff'; then
+            echo "Critical incident detected: CrashLoopBackOff"
+            exit 1
+          else
+            echo "No critical incidents detected."
+          fi
