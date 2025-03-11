@@ -1,5 +1,4 @@
 """
-dashboard_backend.py
 Flask application to serve dashboard metrics for AlumiCatalyst.
 Aggregates data from various sources for real-time insights.
 """
