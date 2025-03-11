@@ -4,6 +4,9 @@ It uses a pre-trained machine learning model (e.g., XGBoost) for inference.
 """
 import pickle
 import numpy as np
+import logging
+
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 class PredictiveModel:
     def __init__(self, model_path: str):
