@@ -5,7 +5,7 @@ This script demonstrates how to interact with the Traceability smart contract us
 
 const Web3 = require('web3');
 const contractABI = require('./TraceabilityABI.json'); // Assume ABI is exported to JSON
-const contractAddress = '0xYourContractAddressHere';
+const contractAddress = '0xYourContractAddressHere'; // Replace with the deployed contract address
 
 const web3 = new Web3('https://your-azure-ethereum-node.example.com');
 
