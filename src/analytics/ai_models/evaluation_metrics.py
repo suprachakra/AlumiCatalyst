@@ -5,6 +5,9 @@ This module calculates evaluation metrics for the predictive model.
 
 import numpy as np
 from sklearn.metrics import mean_squared_error, r2_score
+import logging
+
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 def evaluate_model(y_true: np.array, y_pred: np.array) -> dict:
     """
