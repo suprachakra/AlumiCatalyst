@@ -7,8 +7,10 @@ It reads configuration from the mapping defined in the gateway config.
 
 import requests
 from flask import Flask, request, jsonify
+import logging
 
 app = Flask(__name__)
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Mapping of service names to internal endpoints
 service_endpoints = {
