@@ -1,12 +1,15 @@
 """
 Prediction API
 A Flask-based RESTful API to serve predictions using the trained predictive model.
+Returns scrap loss and emission forecasts for carbon offsetting.
 """
 from flask import Flask, request, jsonify
 import numpy as np
+import logging
 from analytics.ai_models.predictive_model import PredictiveModel
 
 app = Flask(__name__)
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Load the predictive model at startup
 model = PredictiveModel("analytics/ai_models/model.pkl")
