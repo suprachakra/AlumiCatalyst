@@ -1,14 +1,15 @@
 """
-User Management Module
-This module handles basic user authentication and session management for the dashboard.
+Handles basic user authentication and session management for the dashboard.
 """
 
 from flask import Flask, request, jsonify
 import jwt
 import datetime
+import logging
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your_secret_key_here'
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 users = {
     "user1": "password1",
@@ -31,8 +32,10 @@ def login():
     
     if username in users and users[username] == password:
         token = generate_token(username)
+        logging.info(f"User {username} logged in successfully.")
         return jsonify({"token": token})
     else:
+        logging.warning(f"Login failed for user {username}.")
         return jsonify({"error": "Invalid credentials"}), 401
 
 if __name__ == "__main__":
