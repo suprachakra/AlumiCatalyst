@@ -18,6 +18,8 @@ This document details the enhanced security measures and compliance strategies i
 - **Compliance Management:**  
   - Maintain documentation and audit trails for GDPR, ISO, and other relevant standards.
   - Implement data retention and deletion policies per regulatory guidelines.
+- **Automated Updates:**  
+  - Use Azure Security Center for automated patch management.
 
 ### Implementation Details
 - **Security Integration:**  
