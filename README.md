@@ -27,7 +27,7 @@ AlumiCatalyst transforms aluminum manufacturing by:
 
 ### Key Features
 
-**IoT Data Ingestion:** Real-time sensor data capture and preprocessing with built-in fallback mechanisms.
+**IoT Data Ingestion:** Real-time sensor data capture & preprocessing with built-in fallback mechanisms.
 **Predictive Analytics:** Advanced machine learning models forecast scrap loss, predict equipment failures, and estimate carbon emissions.
 **Blockchain Traceability:** Immutable logging of production events, including carbon emission details, for regulatory compliance and carbon credit verification.
 **Unified Dashboard:** An intuitive interface providing real-time metrics, customizable alerts, and interactive data visualizations.
